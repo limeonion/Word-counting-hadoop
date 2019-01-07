@@ -67,37 +67,36 @@ $HADOOP_HOME/sbin/hadoop-daemon.sh start datanode
    - Datanode: [http://127.0.0.1:50075](http://127.0.0.1:50075)
 3. Try HDFS commands
    ```bash
-# Create a new directory /sics on HDFS
+### Create a new directory /sics on HDFS
 $HADOOP_HOME/bin/hdfs dfs -mkdir /sics
 
-# Create a file, call it big, on your local filesystem and upload it to HDFS under /sics.
-
+### Create a file, call it big, on your local filesystem and upload it to HDFS under /sics.
 $HADOOP_HOME/bin/hdfs dfs -put big /sics
 
-# View the content of /sics directory
+### View the content of /sics directory
 $HADOOP_HOME/bin/hdfs dfs -ls big /sics
 
-# Determine the size of big on HDFS
+### Determine the size of big on HDFS
 $HADOOP_HOME/bin/hdfs dfs -du -h /sics/big
 
-# Print the first 5 lines to screen from big on HDFS
+### Print the first 5 lines to screen from big on HDFS
 $HADOOP_HOME/bin/hdfs dfs -cat /sics/big | head -n 5
    
-# Copy big to /big hdfscopy on HDFS
+### Copy big to /big hdfscopy on HDFS
 $HADOOP_HOME/bin/hdfs dfs -cp /sics/big /sics/big_hdfscopy
  
-# Copy big back to local filesystem and name it big localcopy
+### Copy big back to local filesystem and name it big localcopy
 $HADOOP_HOME/bin/hdfs dfs -get /sics/big big_localcopy
    
-# Check the entire HDFS filesystem for inconsistencies/problems
+### Check the entire HDFS filesystem for inconsistencies/problems
 $HADOOP_HOME/bin/hdfs fsck /
    
-# Delete big from HDFS
+### Delete big from HDFS
 $HADOOP_HOME/bin/hdfs dfs -rm /sics/big
    
-# Delete /sics directory from HDFS
+### Delete /sics directory from HDFS
 $HADOOP_HOME/bin/hdfs dfs -rm -r /sics
-   ```
+
 
 ## Part 2: MapReduce
 
